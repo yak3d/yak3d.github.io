@@ -21,15 +21,25 @@
 title: Yaktopia 
 email: yak@yak3d.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A view of Yak's grazing in a large alpine meadow
+  A view of Yaks grazing in a large alpine meadow
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "yak3d.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  yak3d
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+
+color-scheme: auto
+
+remote_theme: BDHU/minimalist
+
+# minimalist settings
+sidebar:
+  - name: Nexus Mods
+    icon: <img src="https://images.nexusmods.com/favicons/ReskinOrange/favicon-16x16.png" />
+    link: https://nexusmods.com/profile/moddingyak
 
 # Exclude from processing.
 # The following items will not be processed, by default.
