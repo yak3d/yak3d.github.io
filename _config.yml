@@ -39,7 +39,7 @@ remote_theme: BDHU/minimalist
 sidebar:
   - name: Nexus Mods
     icon: <img src="https://images.nexusmods.com/favicons/ReskinOrange/favicon-16x16.png" />
-    link: https://nexusmods.com/profile/moddingyak
+    link: https://next.nexusmods.com/profile/moddingyak
 
 # Exclude from processing.
 # The following items will not be processed, by default.
