@@ -20,7 +20,7 @@ It will feature:
 - Terminus, a new bar in Neon. It will be a custom made interior with a mix of Starfield assets and hand built assets.
 - Fully voice acted
 - Music composed specifically for the questline
-- A full story plot that ties up bicely at the end of Act 1 as well as a B plot which will continue throuhhout the chapters
+- A full story plot that ties up nicely at the end of Act 1 as well as a B plot which will continue throuhhout the chapters
 
 Here's a *very* early look at the bar in Terminus rendered in Unreal Engine.
 ![early terminus](./media/early_terminus.png)
