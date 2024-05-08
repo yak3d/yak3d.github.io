@@ -25,6 +25,14 @@ It will feature:
 Here's a *very* early look at the bar in Terminus rendered in Unreal Engine.
 ![early terminus](./media/early_terminus.png)
 
+### Immersive Books
+This will be a lore friendly series of mods that seeks to bulk up the amount of lore in the game. It will do this by taking concepts mentioned in the game thus far and expanding on them with short stories, advertisements, essays etc.
+
+The books will be hand placed in certain environments and also added to level lists where applicable.
+
+#### Immersive Books - AI + Cybernetics
+This first entry in this mod series will add books about AI and cybernetics. While both concepts are briefly mentioned in the game, these books will seek to expand on them and maybe even lend themselves to a future cybernetics mod 😉.
+
 ### Mod Template
 Not a mod but may help you structure your mods as you work on them. It's meant to be used with Spriggit and BSArch. It contains scripts to pack/unpack your archives and ESPs into their loose files/YAML respectively, build for releases and snapshots etc.
 
