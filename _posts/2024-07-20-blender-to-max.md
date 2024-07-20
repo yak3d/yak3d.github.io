@@ -70,7 +70,7 @@ Lastly we need to apply the collision material to the collisions. This will tell
 			<li>Set <b>Total Buttons</b> to 9 (or if its not 8 already, just add one)</li>
 			<li>Click <b>Utilities</b> and <b>Edit button sets</b></li>
 			{% include image.html url="/media/2024-07-20-blender-to-max/3ds_max_configure_button_sets.png" caption="Configuring ButtonSets" %}
-			<li>Under **BGS Utility** drag <b>Collision Group</b> to the empty utility, name the new set something specific and click <b>Save</b> then click <b>OK</b></li>
+			<li>Under <b>BGS Utility</b> drag <b>Collision Group</b> to the empty utility, name the new set something specific and click <b>Save</b> then click <b>OK</b></li>
 			{% include image.html url="/media/2024-07-20-blender-to-max/add_collisiongroup_utility.gif" caption="Adding the CollisionGroup" %}
 			<li>Open the <b>Collision Group</b> utility</li>
 			<li>Select your collision mesh you wish to apply the material to and set the material under <b>Default Material</b> and the <b>Object Type</b></li>
