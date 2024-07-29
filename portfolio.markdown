@@ -20,7 +20,7 @@ It will feature:
 - Music composed specifically for the questline
 
 Here's a *very* early look at Terminus rendered in Unreal Engine.
-![early terminus](./media/early_terminus.png)
+![early terminus](../media/early_terminus.png)
 
 ### Mod Template
 Not a mod but may help you structure your mods as you work on them. It's meant to be used with Spriggit and BSArch. It contains scripts to pack/unpack your archives and ESPs into their loose files/YAML respectively, build for releases and snapshots etc.
