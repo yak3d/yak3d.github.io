@@ -31,7 +31,7 @@ categories: [starfield, 3dsmax, blender]
 ## Assigning Material
 <ol>
 	<li>Open the Compact Material Editor in 3ds Max
-	1. Hit **M** and in the menu bar navigate to **Modes** --> **Compact Material Editor**
+	1. Hit <b>M</b> and in the menu bar navigate to <b>Modes</b> --> <b>Compact Material Editor</b>
 	</li>
 	<li>Click one of the empty/default materials, give it a name and next to the name field click <b>Physical Material</b> and select <b>BSBlinnLayeredMaterial</b></li>
    
