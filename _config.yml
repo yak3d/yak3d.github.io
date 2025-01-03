@@ -41,8 +41,11 @@ navigation_links:
 
 # Footer icons
 footer_links:
+  - title: BlueSky
+    icon: fa-brands fa-square-bluesky
+    url: https://bsky.app/profile/yak3d.com
   - title: Nexus Mods
-    icon: "https://images.nexusmods.com/favicons/ReskinOrange/favicon-16x16.png"
+    icon: fa fa-code
     url: https://next.nexusmods.com/profile/moddingyak
 
 # Enter your copyright text if you wish to override the default one.

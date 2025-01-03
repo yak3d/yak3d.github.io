@@ -1,6 +1,9 @@
-<figure>
+<figure
+    {% if include.float == 'right'%}style="float:right;margin-left: 2rem;"
+    {% elsif include.float == 'left'%}style="float:left;margin-right: 2rem;"{% endif %}
+  >
   <a href="{{ include.url }}" class="glightbox">
-    <img src="{{ include.url }}" alt="{{ include.alt || include.caption }}">
+    <img src="{{ include.url }}" alt="{{ include.alt || include.caption }}" >
   </a>
   <figcaption>{{ include.caption }}</figcaption>
 </figure>

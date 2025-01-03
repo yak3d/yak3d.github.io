@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Exporting from Blender to 3ds Max with Collision for Starfield
-categories: [starfield, 3dsmax, blender]
+categories: [starfield, mods, tutorials]
+tags: [starfield, mods, tutorials, blender, 3dsmax]
 ---
 
 ## From Blender
