@@ -15,7 +15,10 @@ At a high level, Terminus is a multi-chapter quest mod. It will feature:
 * Fully voice acted
 * Music composed specifically for the questline
 
-## The Story
+## What is Terminus?
+End of the line. Well, in a manner of speaking at least. Terminus is the name of this story and it is also the name of the punk rock bar it starts in.
+
+### Terminus the Story
 The story will be multiple chapters, but each chapter will end completely while a B plot will continue on from chapter to chapter. You will join a former detective by the name of Myra Holt. She's retired, and has zero interest in picking up new cases.
 
 {% include image.html url="/media/2025-01-02-intro-to-terminus/jimmy_early_look.png" caption="Early look at Jimmy" float="right" %}
@@ -23,8 +26,6 @@ The first chapter will have Holt reluctantly getting into detective work again. 
 
 You will explore these two characters and the mystery of the bandmates. You'll find out more about Holt and her niece and Jimmy and his struggle with Aurora.
 
-## What is Terminus?
-End of the line. Well, in a manner of speaking at least. Terminus is the name of this story and it is also the name of the punk rock bar it starts in.
 
 ### Terminus the Bar
 I wanted to give Neon some more nightlife. The Astral Lounge has your EDM club covered, Madam Sauvage's Place as the dive bar to get drunk and Euphorika to get zoned out in peace.
