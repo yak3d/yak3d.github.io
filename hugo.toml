@@ -1,0 +1,53 @@
+baseURL = 'https://yak3d.com/'
+languageCode = 'en-us'
+title = 'yak | an alpine meadow'
+theme = 'razorgrrl'
+staticDir = ["static"]
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+
+[languages]
+  [languages.en]
+    title = "yak"
+
+  [languages.en.params]
+    subtitle = "an alpine meadow"
+
+  [languages.en.params.logo]
+    logoText = "yak"
+
+[pagination]
+  disableAliases = false
+  pagerSize = 20
+  path = 'page'
+
+[params]
+  showMenuItems = 3
+  author = "yak"
+  headline = "An alpine meadow where yaks graze"
+  description = "Blog"
+
+[params.navigation]
+  [[params.navigation.list]]
+    name = "home"
+    link = "/"
+  [[params.navigation.list]]
+    name = "stories"
+    link = "/stories"
+  [[params.navigation.list]]
+    name = "about"
+    link = "/about"
+
+[params.contact]
+  [[params.contact.list]]
+    name = "GitHub"
+    icon = "fab fa-github"
+    link = "https://github.com/yak3d"
+  [[params.contact.list]]
+    name = "Bluesky"
+    icon = "fa-brands fa-bluesky"
+    link = "https://bsky.app/profile/yak3d.com"
+

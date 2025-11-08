@@ -1,0 +1,26 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Razorgrrl"
+license = "GNU Affero General Public License v3.0"
+licenselink = "https://gitlab.com/ncryptid/razorgrrl-theme"
+description = "A neo-cyberpunk theme for Hugo"
+homepage = "http://example.com/"
+tags = []
+features = []
+min_version = "0.36.1"
+
+[author]
+  name = ""
+  homepage = ""
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""
+
+[module]:w
+  [[module.imports]]
+    path = 'github.com/hugomods/icons/vendors/font-awesome'
+

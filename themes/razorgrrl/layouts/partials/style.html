@@ -1,0 +1,7 @@
+{{- $scss := resources.Get "css/style.scss" -}}
+{{- if $scss -}}
+{{- $style := $scss | css.Sass (dict "outputStyle" "compressed") -}}
+<link rel="stylesheet" type='text/css' href="{{ $style.RelPermalink }}"/>
+{{- else -}}
+<link rel="stylesheet" type='text/css' href="/css/style.min.css"/>
+{{- end -}}

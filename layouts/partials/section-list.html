@@ -1,0 +1,21 @@
+{{ range (where .Site.Pages "Type" .contentType) }}
+  {{ if and (not (isset .Params "hidden" )) (ne .Kind "section") }}
+
+{{ with .Description }}
+  {{ $.Scratch.Set "summary" (markdownify .) }}
+{{ else }}
+{{ $.Scratch.Set "summary" ((delimit (findRE "(<p.*?>.*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summary_length) (default " &hellip;" .Site.Params.text.truncated ) | replaceRE "&amp;" "&" | safeHTML) }}
+{{ end }}
+<div class="post-div">
+  <div class="post-meta"><a href="{{ .RelPermalink }}" class="post-title-link">{{.Title}}</a> <span><i class="icon far fa-clock"></i> {{ .ReadingTime }}m <i class="icon fas fa-pencil-alt"></i> {{ dateFormat "2 Jan 06" .Date  }}</span></div>
+
+  <div>
+    {{ $.Scratch.Get "summary" }}
+  </div>
+
+  {{ if .Truncated }}
+    <a href="{{ .RelPermalink }}" class="forward-button">read more&nbsp;&raquo</a>
+  {{ end }}
+</div>
+{{ end  }}
+{{ end }}

@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+{{ partial "section-list.html" (dict "Site" .Site "contentType" "stories") }}
+
+<!-- Define range and length of range -->
+{{ $list := (where .Site.Pages "Type" "stories") }}
+{{ $len := (len $list) }}
+
+{{ if gt $len 5 }}
+<div class="footer-div home-color">
+    <ul class="left-list">
+        <li><a href="{{ .Site.BaseURL }}/archives" class="back-button">view all stories</a></li>
+    </ul>
+    <ul class="right-list">
+        <li><a href="#" class="back-button" id="load-more">load more</a></li>
+    </ul>
+</div>
+{{ end }}
+{{ end }}

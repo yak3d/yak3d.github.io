@@ -1,0 +1,76 @@
+{{ define "main" }}
+
+	<h1 class="post-title">{{.Title}}</h1>
+<div class="post-meta">
+
+	<p><i class="far fa-clock"></i> {{ .ReadingTime }} minute read</p>
+
+
+</div>
+
+		<div class="post-content">{{.Content}}</div>
+
+<div class="footer-div home-color">
+{{ with .PrevInSection }}
+	<ul class="left-list">
+		<li><a href="{{ .Permalink }}" class="back-button">previous post</a></li>
+	</ul>
+{{ end }}
+
+{{ with .NextInSection }}
+	<ul class="right-list">
+		<li><a href="{{ .Permalink }}" class="back-button">next post</a>
+</li>
+	</ul>
+{{ end }}
+
+
+	</div>
+
+<div class="post-bottom-div">
+
+
+<!-- Download link -->
+	<a href="{{ print $.Site.Params.docsrepo $.Site.Params.siterepo }}{{ .File.BaseFileName }}.md" class="back-button">download this post</a>
+	<br>
+
+<!-- Back to home -->
+	<a href="{{ .Site.BaseURL }}" class="back-button">return</a>
+	<br>
+
+	<div class="post-meta">
+	<!-- Iterate through series, categories, tags, if present -->
+
+	{{ if .Params.series  }}
+	<i class="fas fa-book"></i>
+ 	{{ range .Params.series }}
+		<a href="{{ print $.Site.BaseURL "/series/" . }}" class="back-button">{{ . }}</a>
+	{{ end }}
+	<br>
+	{{ end }}
+
+	{{ if .Params.categories  }}
+	<i class="fas fa-folder-open"></i>
+ 	{{ range .Params.categories }}
+		<a href="{{ print $.Site.BaseURL "/categories/" . }}" class="back-button">{{ . }}</a>
+	{{ end }}
+	<br>
+	{{ end }}
+
+	{{ if .Params.tags  }}
+	<i class="fas fa-tag"></i>
+	{{ range .Params.tags }}
+		<a href="{{ print $.Site.BaseURL "/tags/" . }}" class="back-button">{{ . }}</a>
+	{{ end }}
+	<br>
+	{{ end }}
+
+	<!-- Author and date -->
+	<i class="icon fas fa-pencil-alt"></i> <a href="{{ .Site.BaseURL }}/about">{{ $.Site.Params.author }}</a>
+		on {{ dateFormat "Monday, Jan 2, 2006" .Date  }}
+	<br>
+	<br>
+</div>
+</div>
+
+{{ end }}

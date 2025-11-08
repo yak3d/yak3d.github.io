@@ -1,0 +1,101 @@
+<DOCTYPE html>
+<html style="background-color:black">
+<head>
+{{ partial "style.html" . }}
+<link rel="stylesheet" type='text/css' href="/css/fontawesome-all.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/forkawesome/css/fork-awesome.min.css"/>
+<link rel="icon" sizes="any" href="{{ .Site.BaseURL }}/favicon.ico">
+<link rel="canonical" href="{{ .Site.BaseURL }}">
+<meta name="twitter:site" content="{{ $.Site.Params.twitter }}">
+<meta name="twitter:creator" content="{{ $.Site.Params.twitter }}">
+{{ if .IsPage }}
+<meta name="twitter:description" content="{{ .Summary }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}/card.png"> {{ else }}
+<meta name="twitter:title" content="{{ .Site.Title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="{{ $.Site.Params.headline }}">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}/card.png">
+ {{ end }}
+
+<meta name="description" content="{{ .Description }}">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+<meta name="viewport" content="width=device-width">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/load_more.js"></script>
+
+<script type="text/javascript">
+
+    $('html').addClass('hidden');
+    $(document).ready(function() {    // EDIT: From Adam Zerner's comment below: Rather use load: $(window).on('load', function () {...});
+          $('html').show();  // EDIT: Can also use $('html').removeClass('hidden');
+         });
+</script>
+
+<title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+</head>
+
+<body>
+
+<!-- global header -->
+   {{ block "header" . }}
+	<div class="header-div">
+	  <div class="logo-div">
+		  <img src="/logo.png" class="logo"/>
+	  </div>
+	  <div class="banner-div">
+	    <h1 class="banner home-color">
+		    {{ .Site.Title }}
+	    </h1>
+	    <p class="banner-text home-color">{{ $.Site.Params.headline }}
+      </p>
+    </div>
+    <div class="rss-feed-div">
+        <a href="{{ .Site.BaseURL }}/posts/index.xml"><i class="icon fa fa-feed"></i></a>
+    </div>
+  </div>
+
+	<hr class="rule">
+	<div class="top-bar home-color">
+	{{ range $.Site.Params.navigation.list }}
+		<a href="{{ .link }}" class="bar-button">{{ .name }}</a>
+	{{ end }}
+	</div>
+   {{ end }}
+
+   <!-- list of posts -->
+   <div class="main-div">
+   {{ block "main" . }}
+
+   {{ end }}
+   </div>
+
+
+   <!-- global footer -->
+
+   {{ block "footer" . }}
+   <hr class="home-color">
+
+   <div class="footer-div home-color">
+
+     <ul class="left-list">
+     {{ range $.Site.Params.contact.list }}
+		   <li><a href="{{ .link }}"><i class="icon {{ .icon }}"></i> {{ .name }}</li></a>
+     {{ end }}
+    </ul>
+
+
+     <ul class="right-list">
+		   {{ $.Site.Params.description | markdownify }}
+	   </ul>
+
+   </div>
+
+   <!-- Repo link -->
+   <div class="home-color copyleft-div">
+	<span class="copyleft">&copy;</span> <a href="{{ $.Site.Params.docsrepo }}">There is no copyright but the right to copy</a></div>
+   {{ end }}
+</body>
+</html>

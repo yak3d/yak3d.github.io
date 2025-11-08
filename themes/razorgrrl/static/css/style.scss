@@ -1,0 +1,357 @@
+$heading-font: 'Iceland', monospace;
+$body-font: 'Inconsolata', monospace;
+$special-font: 'Astloch', cursive;
+
+$heading-color: #EE4266;
+$body-color: #FFFC31;
+$hover-color: #a5427e;
+$highlight-color: #D0003E;
+
+
+@mixin font-select($sel-font-family, $sel-font-weight, $sel-font-style, $sel-font-path){
+    font-family: $sel-font-family;
+    font-style: normal;
+    font-weight: $sel-font-weight;
+    src: url('fonts/' + $sel-font-path + '.eot');
+    src: local($sel-font-family), local($sel-font-family + '-' + $sel-font-style),
+         url('fonts/' + $sel-font-path + '.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/' + $sel-font-path + '.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/' + $sel-font-path + '.woff') format('woff'), /* Modern Browsers */
+         url('fonts/' + $sel-font-path + '.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('fonts/' + $sel-font-path + '.svg#' + $sel-font-family) format('svg'); /* Legacy iOS */
+
+}
+
+/*===
+Fonts
+=== */
+
+@font-face{
+    @include font-select('Iceland', 400, 'Regular', iceland-v6-latin-regular);
+}
+
+@font-face{
+    @include font-select('Inconsolata', 400, 'Regular', inconsolata-v16-latin-regular);
+}
+
+@font-face{
+    @include font-select('Astloch', 400, 'Regular', astloch-v8-latin-regular);
+}
+
+
+/* ================
+ Default styling
+================ */
+
+body {
+  background-color: black;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+p {
+  margin-top: 0px;
+  font-size: 100%;
+}
+
+hr {
+  border: 0px;
+  height: 1px;
+  background-color: $heading-color;
+  border-color: $heading-color;
+
+}
+
+a {
+  color: $heading-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $hover-color;
+}
+
+::selection {
+  color: $highlight-color;
+  background: none;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+blockquote {
+  font-style: italic;
+  border-left-color: $heading-color;
+  border-left-style: solid;
+  border-left-width: 3px;
+  padding: 1px 10px 1px 10px;
+}
+
+h2 {
+  color: $heading-color;
+  font-family: $heading-font;
+  font-size: 200%;
+}
+
+/* =======
+Classes
+======= */
+
+.post-title-link:before {
+  content: '[';
+}
+
+.post-title-link:after {
+  content: ']';
+}
+
+.back-button:before {
+    content: '[';
+}
+
+.back-button:after {
+    content: ']';
+}
+
+.bar-button:before {
+    content: '[';
+}
+
+.bar-button:after {
+    content: ']';
+}
+
+.logo {
+  max-width: 100px;
+  max-height: 100px;
+  display: block;
+  margin: 0 auto;
+  display: inline-block;
+  vertical-align: middle;
+
+}
+
+.header-div {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo-div {
+  margin-bottom: 3px;
+}
+
+.banner-div {
+}
+
+.banner {
+  color: $heading-color;
+  text-align: center;
+  font-size: 400%;
+  font-family: $heading-font;
+  margin: auto 3% auto 3%;
+  display: inline;
+  vertical-align: top;
+}
+
+.banner-text {
+  color: $heading-color;
+  font-size: 150%;
+  font-style: italic;
+  font-family: $heading-font;
+  margin: auto auto auto 2%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rss-feed-div {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.top-bar{
+  width: 80%;
+  color: var(--main-color);
+  margin: auto;
+  margin-top: 1%;
+  text-align: center;
+}
+
+.bar-button,.tax-button,.back-button,.forward-button {
+  color: $heading-color;
+  font-size: 175%;
+  text-decoration: none;
+  font-family: $body-font;
+  margin: auto 1% auto 1%;
+}
+
+.tax-button,.back-button,.forward-button {
+  font-size: 14px;
+  margin: auto;
+}
+
+.main-div {
+  max-width: 950px;
+  margin: auto;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  line-height: 1.5rem;
+}
+
+.post-div {
+  display: none;
+  color: $body-color;
+  font-family: $body-font;
+  margin-bottom: 50px;
+}
+
+.icon {
+  position: relative;
+  top: 1.5px;
+}
+
+.post-meta {
+  color: grey;
+  font-family: $body-font;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.post-title, .post-title-link {
+  font-family: $heading-font;
+  color: $heading-color;
+  font-size: 200%;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.sub-header {
+  font-family: $heading-font;
+  color: $heading-color;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.post-content {
+  color: $body-color;
+  font-family: $body-font;
+}
+
+.about-content {
+  font-family: $special-font;
+  font-size:1.4rem;
+}
+
+.post-date {
+  size: 10px;
+}
+
+.post-bottom-div {
+  border-top: 1px solid $body-color;
+}
+
+.footer-div {
+  max-width: 950px;
+  margin: auto;
+  font-family: $body-font;
+  overflow: auto;
+}
+
+.left-list {
+  float: left;
+  max-width: 400px;
+  list-style-type: none;
+  padding: 0px;
+}
+
+.right-list {
+  float: right;
+  color: $body-color;
+  max-width: 400px;
+  list-style-type: none;
+  padding: 0px;
+  text-align: right;
+}
+
+.archive-list {
+  color: $body-color;
+  font-family: $body-font;
+  list-style-type: none;
+
+}
+
+.description-p{
+  margin-top: 0px;
+}
+
+.copyleft-div {
+  text-align: center;
+  background-color: black;
+  font-family: $body-font;
+  padding: 1rem;
+
+}
+
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+  color: $heading-color;
+}
+
+.home-color {
+    color: $heading-color;
+    border-color: $heading-color;
+}
+
+/*=======
+IDs
+=======*/
+
+load-more{
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
+}
+
+/* ===========
+Responsiveness
+============*/
+
+@media screen and (max-width: 800px) {
+  .header-div {
+     display: block;
+  }
+
+  .banner-div {
+     display: inline-block;
+     align-items: center;
+  }
+
+  .banner {
+     font-size: 10vw;
+  }
+
+  .banner-text {
+     font-size: calc(12px + 1vw);
+  }
+
+  .logo{
+     margin-left: 5px;
+  }
+  .bar-button {
+     font-size: calc(12px + 2vw);
+  }
+
+  .left-list,.right-list {
+    float: none;
+    text-align: center;
+    margin: auto;
+  }
+
+}

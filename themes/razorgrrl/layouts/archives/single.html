@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+<div>
+{{ range (.Site.RegularPages.GroupByDate "2006")  }}
+	<h1 class="post-title">{{ .Key  }}</h1>
+<ul class="archive-list">
+	{{ range (where .Pages "Type" "posts")  }}
+	<li style="margin-bottom: 0px;">
+	{{ .PublishDate.Format "02 Jan"  }}
+	-
+	<a href="{{ .RelPermalink  }}" class="back-button">{{ .Title  }}</a>
+	</li>
+	{{ end  }}
+</ul>
+{{ end  }}
+</div>
+<div class="post-meta">
+<h2>Categories</h2>
+	<i class="fas fa-folder-open"></i>
+{{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+   <a href="{{.Permalink}}" class="back-button">{{.Title}}</a></li>
+{{end}}
+
+<br>
+<h2>Tags</h2>
+  	<i class="fas fa-tag"></i>
+  {{range ($.Site.GetPage "taxonomyTerm" "tags").Pages }}
+  <a href="{{.Permalink}}" class="back-button">{{.Title}}</a></li>
+  {{end}}
+</div>
+{{ end }}

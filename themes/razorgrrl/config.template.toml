@@ -1,0 +1,41 @@
+baseURL = ""
+languageCode = "en-us"
+title = ""
+theme = "razorgrrl"
+staticDir = ["static"]
+disqusShortname = ""
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+
+[params]
+headline = ""
+author = ""
+description = """
+"""
+
+enableRobotsTXT = true
+canonifyURLs = true
+
+docsrepo = ""
+siterepo = ""
+license = ""
+licenseimg = ""
+
+[permalinks]
+    post = "/blog/:title/"
+
+[params.navigation]
+
+  [[params.navigation.list]]
+    name = "home"
+    link = ""
+
+[params.contact]
+
+  [[params.contact.list]]
+    name = "Twitter"
+    icon = "fab fa-twitter"
+    link = "" 
