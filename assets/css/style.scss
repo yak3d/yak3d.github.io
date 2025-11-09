@@ -163,7 +163,7 @@ Classes
 }
 
 .banner-text {
-  color: $heading-color;
+  color: $body-color;
   font-size: 150%;
   font-style: italic;
   font-family: $heading-font;
@@ -187,7 +187,15 @@ Classes
   text-align: center;
 }
 
-.bar-button,.tax-button,.back-button,.forward-button {
+.bar-button {
+  color: $body-color;
+  font-size: 175%;
+  text-decoration: none;
+  font-family: $body-font;
+  margin: auto 1% auto 1%;
+}
+
+.tax-button,.back-button,.forward-button {
   color: $heading-color;
   font-size: 175%;
   text-decoration: none;

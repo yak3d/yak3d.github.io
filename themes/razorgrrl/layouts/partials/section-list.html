@@ -1,0 +1,4 @@
+{{ $pages := where $.Site.Pages "Type" $.contentType }}
+{{ range $pages }}
+  {{ partial "page-summary.html" . }}
+{{ end }}
