@@ -4,6 +4,10 @@ title = 'yak | an alpine meadow'
 theme = 'razorgrrl'
 staticDir = ["static"]
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [taxonomies]
 tag = "tags"
 category = "categories"
