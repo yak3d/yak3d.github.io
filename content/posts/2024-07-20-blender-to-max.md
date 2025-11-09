@@ -10,7 +10,7 @@ tags = ["starfield", "mods", "tutorials", "blender", "3dsmax"]
 
 {{< image src="/images/2024-07-20-blender-to-max/blender_mesh_hierarchy.png" caption="Mesh Hierarchy in Blender w/ Collision" alt="Mesh Hierarchy in Blender w/ Collision" >}}
 
-{{< image src="/images/2024-07-20-blender-to-max/blender_mesh_with_collision.png" caption="Mesh in Blender w/ Collision" >}}
+{{< image src="/images/2024-07-20-blender-to-max/blender_mesh_with_collision.png" caption="Mesh in Blender w/ Collision" height="50%" >}}
 
 {{< image src="/images/2024-07-20-blender-to-max/blender_mesh.png" caption="Mesh in Blender w/o Collision" >}}
 
