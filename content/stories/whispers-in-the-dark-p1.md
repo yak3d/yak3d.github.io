@@ -24,7 +24,7 @@ Mags took a sip of her as she listened. “What do you mean? Like a honeypot?”
 
 “Maybe... The files were there, we downloaded most of them before the daemon-thing manifested. As we looked deeper, something looked back. Something perceived me, and I don’t mean like the usual ICE detection. It felt like it reached into my mind… no, that’s not accurate. Even daemons can fry a runner’s brain in realspace.”
 
-Leese rubbed her eyes before continuing. “Cyberspace… darkened as if something cast a shadow over it. Then it felt like the daemon-thing was scanning my thoughts and making me relive every memory. I swear it was taking my thoughts and memory.”
+Leese rubbed her eyes before continuing. “Cyberspace… darkened as if something cast a shadow over it. Then it felt like the daemon-thing was scanning my thoughts and making me relive every memory. I swear it was taking my thoughts.”
 
 Mags’ eyebrows shot up in genuine surprise. “Okay, that’s not a daemon. That’s next-level shit. What else did it do?”
 
