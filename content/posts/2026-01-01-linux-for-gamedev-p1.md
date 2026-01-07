@@ -48,3 +48,4 @@ I've been using Cachy for about a month or so now, the only time I've booted bac
 
 I'll have more to report on things like my backup strategy, disk setup and more!
 
+*The \* denotes if tinkering with Wine/Proton was required*
