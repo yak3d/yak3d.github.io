@@ -369,3 +369,83 @@ Responsiveness
   }
 
 }
+
+/* =========
+Code Blocks
+===========*/
+
+$code-keyword: #FF6B9D;
+$code-string: #00E5FF;
+$code-comment: #7F8C8D;
+$code-function: #C77DFF;
+$code-number: #FFB347;
+$code-operator: #FFFFFF;
+$code-class: #00FFC8;
+
+pre {
+  background-color: #1a1a1a;
+  border: 2px solid $heading-color;
+  border-radius: 4px;
+  padding: 15px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 20px 0;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  color: #D4D4D4;
+  font-family: $body-font;
+  font-size: 95%;
+}
+
+code {
+  background-color: #1a1a1a;
+  color: $body-color;
+  font-family: $body-font;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid $heading-color;
+  font-size: 95%;
+}
+
+/* Syntax highlighting for Chroma/Hugo */
+.highlight {
+  pre {
+    margin: 0;
+  }
+}
+
+/* Keywords */
+.k, .kd, .kn, .kp, .kr, .kt, .kc { color: $code-keyword; }
+
+/* Strings */
+.s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: $code-string; }
+
+/* Comments */
+.c, .c1, .cm, .cp, .cs { color: $code-comment; font-style: italic; }
+
+/* Functions */
+.nf, .fm, .nb { color: $code-function; }
+
+/* Numbers */
+.m, .mf, .mh, .mi, .mo, .il { color: $code-number; }
+
+/* Operators */
+.o, .ow { color: $code-operator; }
+
+/* Class names */
+.nc, .nn { color: $code-class; }
+
+/* Variables/Names */
+.n, .na, .nv, .nx { color: #D4D4D4; }
+
+/* Built-ins */
+.bp { color: $code-function; }
+
+/* Punctuation */
+.p { color: #D4D4D4; }
+
