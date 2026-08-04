@@ -1,7 +1,7 @@
 baseURL = 'https://yak3d.com/'
 languageCode = 'en-us'
 title = 'yak | an alpine meadow'
-theme = 'razorgrrl'
+theme = ['hugo-video', 'razorgrrl']
 staticDir = ["static"]
 
 [caches]
