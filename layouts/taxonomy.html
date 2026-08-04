@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<h1 class="post-title">{{ .Title }}</h1>
+
+<ul class="archive-list">
+{{ range .Pages.ByTitle }}
+  <li style="margin-bottom: 0px;">
+    <a href="{{ .RelPermalink }}" class="back-button">{{ .Title }}</a>
+    ({{ len .Pages }})
+  </li>
+{{ end }}
+</ul>
+
+<div class="footer-div home-color"><ul class="right-list">
+    <li><a href="{{ "/archives/" | relURL }}" class="back-button">view all posts</a></li>
+</ul>
+</div>
+
+{{ end }}

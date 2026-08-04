@@ -9,7 +9,7 @@
 {{ if gt $len 5 }}
 <div class="footer-div home-color">
     <ul class="left-list">
-        <li><a href="{{ .Site.BaseURL }}/archives" class="back-button">view all posts</a></li>
+        <li><a href="{{ "/archives/" | relURL }}" class="back-button">view all posts</a></li>
     </ul>
     <ul class="right-list">
         <li><a href="#" class="back-button" id="load-more">load more</a></li>

@@ -2,6 +2,7 @@
 date = '2026-08-03T20:06:26-04:00'
 draft = false
 title = 'Terminus Devlog 0'
+tags = ["gamedev", "terminus", "devlog"]
 +++
 
 This will be the first of (hopefully) many dev logs about a game I'm going to be prototyping over the next thirty days or so. I wouldn't say this is my "dream" game, but nor is it small in scope necessarily. It'll probably be more than a solo developer could do. I've accepted that, but still want to give it a shot.

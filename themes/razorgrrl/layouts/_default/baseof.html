@@ -34,7 +34,8 @@
       });
       </script>
 
-      <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+      {{ $pageTitle := cond .IsHome "Home" .Title }}
+      <title>{{ if $pageTitle }}{{ $pageTitle }} | {{ end }}{{ .Site.Title }}</title>
     </head>
 
     <body>
@@ -42,11 +43,15 @@
       <!-- global header -->
       <div class="header-div">
         <div class="logo-div">
-          <img src="/logo.png" class="logo"/>
+          <a href="/">
+            <img src="/logo.png" class="logo"/>
+          </a>
         </div>
         <div class="banner-div">
           <h1 class="banner home-color">
-            {{ .Site.Title }}
+            <a href="/">
+              {{ .Site.Title }}
+            </a>
           </h1>
           <p class="banner-text">{{ $.Site.Params.headline }}
           </p>

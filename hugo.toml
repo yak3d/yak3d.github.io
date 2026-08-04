@@ -55,6 +55,3 @@ series = "series"
     icon = "fa-brands fa-bluesky"
     link = "https://bsky.app/profile/yak3d.com"
 
-[outputs]
-  stories = ['html', 'rss']
-
