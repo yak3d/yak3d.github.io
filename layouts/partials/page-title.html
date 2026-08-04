@@ -1,0 +1,18 @@
+{{- /*
+  page-title.html — the human-readable title for a page, never empty.
+
+  content/portfolio/terminus.md has no front matter at all and
+  content/about/index.md sets only a date, so .Title and .LinkTitle are both
+  empty there. Fall back to the filename before falling back to the site title.
+
+  Context: Page.  Returns: string.
+*/ -}}
+{{- $t := "" -}}
+{{- if .IsHome -}}
+  {{- $t = site.Title -}}
+{{- else -}}
+  {{- $t = .Title | default .LinkTitle -}}
+  {{- if not $t }}{{ with .File }}{{ $t = .ContentBaseName | humanize | title }}{{ end }}{{ end -}}
+  {{- if not $t }}{{ $t = site.Title }}{{ end -}}
+{{- end -}}
+{{- return ($t | plainify | htmlUnescape | strings.TrimSpace) -}}

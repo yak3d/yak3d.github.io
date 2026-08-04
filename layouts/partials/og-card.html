@@ -1,0 +1,96 @@
+{{- /*
+  og-card.html — renders a 1200x630 social preview card and returns the resource.
+
+  Context: dict with
+    title    (string) big headline, Iceland / #EE4266
+    siteline (string) first footer line, Inconsolata / #FFFC31; omit on cards
+                      whose title already carries the site name
+    subtitle (string) second footer line, Inconsolata / #FFFC31
+    name     (string) publish path stem, e.g. "card/posts/terminus-devlog-1"
+
+  Returns: image resource, or "" if the source assets are missing.
+*/ -}}
+
+{{- $title    := .title | default site.Title -}}
+{{- $siteline := .siteline | default "" -}}
+{{- $subtitle := .subtitle | default "" -}}
+{{- $name     := .name | default "index" -}}
+
+{{- $logo    := resources.Get "images/logo.png" -}}
+{{- $iceland := resources.Get "css/fonts/iceland-v6-latin-regular.ttf" -}}
+{{- $mono    := resources.Get "css/fonts/inconsolata-v16-latin-regular.ttf" -}}
+
+{{- /* $out must be declared OUTSIDE the if: `return` inside an if block cannot
+       see variables declared in that block ("undefined variable"). */ -}}
+{{- $out := "" -}}
+{{- if and $logo $iceland $mono -}}
+
+  {{- /* ---- size the title, then hard-wrap it ----------------------------- */ -}}
+  {{- $n := strings.RuneCount $title -}}
+  {{- $size := cond (le $n 32) 92 (cond (le $n 68) 76 60) -}}
+  {{- /* Iceland's average advance is ~0.42em; usable width is 1080px (60px gutters) */ -}}
+  {{- $maxChars := int (math.Floor (div 1080.0 (mul 0.42 $size))) -}}
+
+  {{- $lines := slice -}}
+  {{- $cur := "" -}}
+  {{- range (split $title " ") -}}
+    {{- $w := . -}}
+    {{- if eq $w "" -}}
+    {{- else if eq $cur "" -}}
+      {{- $cur = $w -}}
+    {{- else if le (strings.RuneCount (printf "%s %s" $cur $w)) $maxChars -}}
+      {{- $cur = printf "%s %s" $cur $w -}}
+    {{- else -}}
+      {{- $lines = $lines | append $cur -}}
+      {{- $cur = $w -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $cur }}{{ $lines = $lines | append . }}{{ end -}}
+  {{- $lines = first 4 $lines -}}
+
+  {{- /* ---- opaque 1200x630 black canvas ------------------------------------
+         Hugo cannot create a blank image, so blacken a crop of the logo.
+         Routing through jpg also flattens the alpha channel: a transparent
+         card unfurls badly in some clients. */ -}}
+  {{- $card := $logo.Fill "1200x630 jpg" | images.Filter (images.Brightness -100) -}}
+
+  {{- /* ---- yak mark, flush to the bottom-right corner ----------------------
+         logo.png is a bust crop that bleeds off its own square, so running it
+         off the card edge reads as intentional instead of as a hard rectangle. */ -}}
+  {{- $mark := $logo.Fit "140x140 png" -}}
+  {{- $card = $card | images.Filter (images.Overlay $mark 1060 490) -}}
+
+  {{- /* ---- title ------------------------------------------------------------ */ -}}
+  {{- $lh  := add $size 14 -}}
+  {{- $top := int (sub 260 (div (mul (len $lines) $lh) 2)) -}}
+  {{- $top = cond (lt $top 70) 70 $top -}}
+  {{- $card = $card | images.Filter (images.Text (delimit $lines "\n") (dict
+        "color"       "#EE4266"
+        "size"        $size
+        "x"           60
+        "y"           $top
+        "linespacing" 14
+        "font"        $iceland)) -}}
+
+  {{- /* ---- footer, bottom-aligned so 1- and 2-line variants share a baseline */ -}}
+  {{- $foot := slice -}}
+  {{- with $siteline }}{{ $foot = $foot | append . }}{{ end -}}
+  {{- with $subtitle }}{{ $foot = $foot | append . }}{{ end -}}
+  {{- with $foot -}}
+    {{- $card = $card | images.Filter (images.Text (delimit . "\n") (dict
+          "color"       "#FFFC31"
+          "size"        30
+          "x"           60
+          "y"           (int (sub 532 (mul (sub (len .) 1) 42)))
+          "linespacing" 12
+          "font"        $mono)) -}}
+  {{- end -}}
+
+  {{- /* Generated resources inherit the SOURCE name, so without resources.Copy
+         every card on the site would publish as logo_hu_<hash>.jpg.
+         The extension must be .png: images.Filter emits PNG regardless of the
+         "jpg" hint on Fill above, and a PNG served as image/jpeg (which is what
+         the extension tells GitHub Pages to send) breaks stricter unfurlers. */ -}}
+  {{- $out = resources.Copy (printf "og/%s.png" $name) $card -}}
+{{- end -}}
+{{- return $out -}}

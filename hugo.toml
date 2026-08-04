@@ -4,6 +4,18 @@ title = 'yak | an alpine meadow'
 theme = ['hugo-video', 'razorgrrl']
 staticDir = ["static"]
 
+# Declaring any mount targeting assets/ replaces Hugo's default assets->assets
+# mount, so it has to be restated explicitly or style.scss and the fonts vanish.
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  # Reach logo.png from resources.Get for the social card, without moving it
+  # out of static/ (which would 404 https://yak3d.com/logo.png).
+  [[module.mounts]]
+    source = "static/logo.png"
+    target = "assets/images/logo.png"
+
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
@@ -33,6 +45,7 @@ series = "series"
   author = "yak"
   headline = "An alpine meadow where yaks graze"
   description = "Blog"
+  ogLocale = "en_US"
 
 [params.navigation]
   [[params.navigation.list]]

@@ -1,0 +1,81 @@
+{{- /*
+  og-image.html — resolves the social preview image for a page.
+
+  Precedence: front matter `cover` -> front matter `images` -> generated card.
+
+  Context: Page.  Returns: dict {url, width, height, alt}, empty if none.
+  width/height are only present when the source can report them (page bundle
+  resources and assets/ files); they are optional for unfurlers.
+*/ -}}
+
+{{- $p := . -}}
+{{- $out := dict -}}
+{{- $name := partial "page-title.html" $p -}}
+
+{{- /* ---------- 1. front matter override ----------------------------------- */ -}}
+{{- $ref := "" -}}
+{{- with $p.Params.cover -}}
+  {{- if reflect.IsMap . -}}
+    {{- $ref = (index . "image") | default (index . "src") | default "" -}}
+  {{- else -}}
+    {{- $ref = . -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $ref -}}
+  {{- with $p.Params.images -}}
+    {{- if reflect.IsSlice . -}}
+      {{- with (index . 0) }}{{ $ref = . }}{{ end -}}
+    {{- else -}}
+      {{- $ref = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with $ref -}}
+  {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
+    {{- $out = dict "url" . "alt" $name -}}
+  {{- else -}}
+    {{- $r := "" -}}
+    {{- with $p.Resources.GetMatch . }}{{ $r = . }}{{ end -}}
+    {{- if not $r }}{{ with resources.Get . }}{{ $r = . }}{{ end }}{{ end -}}
+    {{- if $r -}}
+      {{- $out = dict "url" $r.Permalink "alt" $name -}}
+      {{- if eq $r.ResourceType "image" -}}
+        {{- $out = merge $out (dict "width" $r.Width "height" $r.Height) -}}
+      {{- end -}}
+    {{- else -}}
+      {{- /* e.g. a file in static/ — absolute-ify it; dimensions unknowable */ -}}
+      {{- $out = dict "url" (. | absURL) "alt" $name -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* ---------- 2. generated card -------------------------------------------
+       Only the home card carries the full site title as its big line, and it
+       drops the duplicate site name from the footer. Sections and taxonomy
+       terms use their own name like any other page. site.Title is "yak"
+       (shadowed by languages.en.title), hence the printf. */ -}}
+{{- if not $out -}}
+  {{- $fullTitle := cond (isset site.Params "subtitle") (printf "%s | %s" site.Title site.Params.subtitle) site.Title -}}
+  {{- $cardTitle := cond $p.IsHome $fullTitle $name -}}
+  {{- $siteline  := cond $p.IsHome "" site.Title -}}
+
+  {{- $stem := path.Join "card" (strings.TrimPrefix "/" (strings.TrimSuffix "/" $p.RelPermalink)) -}}
+  {{- if eq $stem "card" }}{{ $stem = "card/index" }}{{ end -}}
+
+  {{- with partial "og-card.html" (dict
+        "title"    $cardTitle
+        "siteline" $siteline
+        "subtitle" site.Params.headline
+        "name"     $stem) -}}
+    {{- $out = dict
+          "url"    .Permalink
+          "width"  .Width
+          "height" .Height
+          "alt"    (cond $p.IsHome
+                      (printf "%s — %s" $fullTitle (site.Params.headline | default ""))
+                      (printf "%s — %s" $name site.Title)) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $out -}}
