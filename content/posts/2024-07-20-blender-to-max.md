@@ -1,6 +1,7 @@
 +++
 title = "Exporting from Blender to 3ds Max with Collision for Starfield"
 date = 2024-07-20
+description = ""
 tags = ["starfield", "mods", "tutorials", "blender", "3dsmax"]
 +++
 

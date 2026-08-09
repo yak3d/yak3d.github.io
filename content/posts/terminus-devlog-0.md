@@ -1,5 +1,6 @@
 +++
 date = '2026-08-03T20:06:26-04:00'
+description = ""
 draft = false
 title = 'Terminus Devlog 0'
 tags = ["gamedev", "terminus", "devlog"]
