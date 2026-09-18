@@ -18,3 +18,6 @@ hugo.linux
 
 # End of https://www.toptal.com/developers/gitignore/api/hugo
 
+
+# Wrangler local state
+/.wrangler/
