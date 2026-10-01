@@ -6,7 +6,7 @@ title = 'End of Line'
 
 {{< info-box >}}
 {{< info-item "genre" >}}CRPG{{< /info-item >}}
-{{< info-item "platforms" >}}Windows + Linux{{< /info-item >}}
+{{< info-item "platforms" >}}Windows + Linux + Mac{{< /info-item >}}
 {{< info-item "status" >}}In Development{{< /info-item >}}
 {{< /info-box >}}
 
