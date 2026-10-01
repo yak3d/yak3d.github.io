@@ -333,6 +333,112 @@ load-more{
     -o-transition: all 600ms ease-in-out;
 }
 
+/* =========
+Home Page
+===========*/
+
+.blinker {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.72em;
+  background: $body-color;
+  animation: caret 1.1s step-end infinite;
+}
+
+@keyframes caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.labeled-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $heading-color;
+  font-size: 14px;
+  padding-top: .25em;
+}
+
+.labeled-divider-line {
+  flex: 1;
+  height: 1px;
+  background: $heading-color;
+}
+
+.muted {
+  color: grey;
+}
+
+.game-card-body {
+  padding-bottom: 1em;
+}
+
+.game-card-platforms {
+  font-size: 14px;
+  color: grey;
+}
+
+.game-card-link {
+  font-size: 24px;
+  padding-left: 0.75em;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 38rem;
+}
+
+@media screen and (min-width: 800px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.simple-card-title {
+  color: $heading-color;
+  font-size: 150%;
+  margin-bottom: 0.25em;
+}
+
+.centered-link {
+  text-align: center;
+}
+
+.info-box {
+  border: 1px solid $heading-color;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1rem 0;
+}
+
+.info-box dl {
+  margin: 0;
+}
+
+.info-box-label {
+  color: $heading-color;
+  font-family: $heading-font;
+  font-size: 120%;
+}
+
+.info-box-value {
+  margin: 0 0 0.75em 0;
+}
+
+.info-box-value:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .info-box {
+    float: right;
+    width: 14rem;
+    margin-left: 1.5rem;
+  }
+}
+
 /* ===========
 Responsiveness
 ============*/

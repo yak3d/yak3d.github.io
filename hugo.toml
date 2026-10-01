@@ -1,6 +1,6 @@
 baseURL = 'https://yak3d.com/'
 languageCode = 'en-us'
-title = 'yak | an alpine meadow'
+title = 'yak games | an alpine meadow'
 theme = ['hugo-video', 'razorgrrl']
 staticDir = ["static"]
 
@@ -27,7 +27,7 @@ series = "series"
 
 [languages]
   [languages.en]
-    title = "yak"
+    title = "yak games"
 
   [languages.en.params]
     subtitle = "an alpine meadow"
@@ -52,11 +52,14 @@ series = "series"
     name = "home"
     link = "/"
   [[params.navigation.list]]
+    name = "end of line"
+    link = "/eol"
+  [[params.navigation.list]]
+    name = "blog"
+    link = "/posts/"
+  [[params.navigation.list]]
     name = "stories"
     link = "/stories"
-  [[params.navigation.list]]
-    name = "about"
-    link = "/about"
 
 [params.contact]
   [[params.contact.list]]

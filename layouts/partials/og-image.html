@@ -53,7 +53,7 @@
 {{- /* ---------- 2. generated card -------------------------------------------
        Only the home card carries the full site title as its big line, and it
        drops the duplicate site name from the footer. Sections and taxonomy
-       terms use their own name like any other page. site.Title is "yak"
+       terms use their own name like any other page. site.Title is "yak games"
        (shadowed by languages.en.title), hence the printf. */ -}}
 {{- if not $out -}}
   {{- $fullTitle := cond (isset site.Params "subtitle") (printf "%s | %s" site.Title site.Params.subtitle) site.Title -}}

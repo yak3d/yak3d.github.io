@@ -1,0 +1,21 @@
+<article class="game-card">
+  <h2 class="game-card-title">
+    {{ .Get "title" }}{{ if .Get "blink" }} <span class="blinker"></span>{{ end
+    }}
+  </h2>
+  <h3>{{ .Get "subtitle" }}</h3>
+
+  <div class="game-card-body">
+    {{ .InnerDeindent | .Page.RenderString (dict "display" "block") }}
+    <p class="game-card-platforms">{{ .Get "platforms" }}</p>
+
+    <div class="game-card-links">
+      {{ with .Get "wishlist" }}
+      <a href="{{ . }}">Wishlist on Steam</a>
+      {{ else }}
+      <a href="/eol" class="game-card-link">[more info]</a>
+      <span class="muted game-card-link">[wishlist coming soon]</span>
+      {{ end }}
+    </div>
+  </div>
+</article>

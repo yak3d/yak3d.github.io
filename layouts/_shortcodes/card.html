@@ -1,0 +1,4 @@
+<article class="simple-card">
+  <p class="simple-card-title">{{ .Get 0 }}</p>
+  {{ .InnerDeindent | .Page.RenderString (dict "display" "block") }}
+</article>
